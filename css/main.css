@@ -1,5 +1,15 @@
 body {
-    background-color: aqua;
-    background-color: aqua;
-    background-color: purple;
+    margin: 0;
+    padding: 0;
+}
+
+#board {
+    background-color: rgb(181, 181, 181);
+    height: 100vh;
+    position: relative;
+}
+
+#player {
+    background-color: rgb(242, 57, 255);
+    position: absolute;
 }
