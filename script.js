@@ -78,7 +78,7 @@ class Game {
                     this.player.positionY + this.player.height >
                         obstacleInstance.positionY
                 ) {
-                    //handleDeath();
+                    handleDeath();
                 }
             });
         }, 50);
