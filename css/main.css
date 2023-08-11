@@ -25,7 +25,11 @@ body {
     opacity: 0.2;
     pointer-events: none;
 }
-
+#scoreDisplay {
+    color: #fff;
+    position: absolute;
+    right: 0;
+}
 #player {
     background-color: transparent;
     position: absolute;

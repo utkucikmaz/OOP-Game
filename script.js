@@ -2,7 +2,6 @@ class Game {
     constructor() {
         this.player = null;
         this.obstaclesArr = [];
-
         this.showName();
     }
     showName() {
@@ -44,6 +43,12 @@ class Game {
         const obstaclesArr = [];
         const nameInput = document.getElementById("nameInput");
         const userName = nameInput.value.trim().toUpperCase();
+        let score = 0;
+
+        const parentElm = document.getElementById("board");
+        const scoreDisplay = document.createElement("span");
+        scoreDisplay.id = "scoreDisplay";
+        parentElm.appendChild(scoreDisplay);
 
         document.addEventListener("keydown", (event) => {
             if (event.key === "ArrowLeft") {
@@ -62,11 +67,17 @@ class Game {
             obstaclesArr.push(newObstacle);
             const randomColor = randomizeColor();
             newObstacle.domElement.style.backgroundColor = randomColor;
+            score++;
+            scoreDisplay.textContent = `Score: ${score}`;
         }, 800);
 
         const obstaclesMove = setInterval(() => {
             obstaclesArr.forEach((obstacleInstance) => {
                 obstacleInstance.moveDown();
+
+                if (obstacleInstance.positionY + obstacleInstance.height < 0) {
+                    obstacleInstance.domElement.remove();
+                }
 
                 if (
                     this.player.positionX <
@@ -97,7 +108,7 @@ class Game {
             gameOverDiv.innerText = `
 			ERDOGAN GOT YA :(
 
-			${userName} SENTENCED TO LIFE IMPRISONMENT!!`;
+			${userName} GOES ${score} YEARS TO PRISON!!`;
 
             const parentElm = document.getElementById("board");
             parentElm.appendChild(gameOverDiv);
@@ -112,7 +123,6 @@ class Game {
             obstaclesArr.forEach((element) => {
                 element.domElement.remove();
             });
-
             document.addEventListener("keydown", (event) => {
                 if (event.key === " ") {
                     location.assign("index.html");
@@ -227,9 +237,6 @@ class Obstacle {
     moveDown() {
         this.positionY--;
         this.domElement.style.bottom = this.positionY + "vh";
-        if (this.positionY + this.height < 0) {
-            this.domElement.remove();
-        }
     }
 }
 
