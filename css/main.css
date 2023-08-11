@@ -41,38 +41,41 @@ body {
     padding: 0;
     background-color: rgb(155, 15, 15);
     position: absolute;
-    font-size: 3rem;
+    font-size: 3vw;
     color: #fff;
     text-align: center;
 }
 .restart {
-    font-size: 2rem;
+    font-size: 2vw;
     text-align: center;
     position: relative;
     bottom: 0;
 }
 .over-gif {
     padding: 3vh 0;
+    display: block;
+    margin-left: 30vw;
+    width: 40vw;
 }
 #nameForm {
     background-color: blueviolet;
     width: 100vw;
     height: 100vh;
-    font-size: 5rem;
+    font-size: 5vw;
     color: #fff;
     text-align: center;
-    padding-top: 5rem;
+    padding-top: 10vh;
     opacity: 1;
 }
 #nameForm > #submit-btn {
-    width: 10vw;
-    height: 5rem;
-    border-radius: 1rem;
+    width: 50vw;
+    height: 10vh;
+    border-radius: 1vw;
     background-color: transparent;
     font-size: 1rem;
     color: #fff;
     border: 5px solid #fff;
-    margin-top: 5rem;
+    margin-top: 5vh;
 }
 #nameForm > #submit-btn:hover {
     transition: 0.7s;
@@ -81,10 +84,10 @@ body {
 }
 #nameInput {
     background-color: #fff;
-    width: 20vw;
+    width: 30vw;
     height: 5vh;
-    border-radius: 0.5rem;
+    border-radius: 0.5vw;
     text-align: center;
-    margin-top: 5rem;
+    margin-top: 10vh;
     opacity: 1;
 }
