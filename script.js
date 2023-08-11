@@ -78,7 +78,7 @@ class Game {
                     this.player.positionY + this.player.height >
                         obstacleInstance.positionY
                 ) {
-                    handleDeath();
+                    //handleDeath();
                 }
             });
         }, 50);
@@ -126,6 +126,36 @@ class Game {
             const blue = Math.floor(Math.random() * 256);
             return `rgb(${red},${green},${blue})`;
         }
+
+        const buttonContainer = document.createElement("div");
+        buttonContainer.id = "button-container";
+
+        const container = document.getElementById("board");
+        container.appendChild(buttonContainer);
+
+        const buttonUp = document.createElement("button");
+        buttonUp.id = "button-up";
+        buttonUp.textContent = "↑";
+        buttonContainer.appendChild(buttonUp);
+        buttonUp.addEventListener("click", () => this.player.moveUp());
+
+        const buttonDown = document.createElement("button");
+        buttonDown.id = "button-down";
+        buttonDown.textContent = "↓";
+        buttonContainer.appendChild(buttonDown);
+        buttonDown.addEventListener("click", () => this.player.moveDown());
+
+        const buttonLeft = document.createElement("button");
+        buttonLeft.id = "button-left";
+        buttonLeft.textContent = "←";
+        buttonContainer.appendChild(buttonLeft);
+        buttonLeft.addEventListener("click", () => this.player.moveLeft());
+
+        const buttonRight = document.createElement("button");
+        buttonRight.id = "button-right";
+        buttonRight.textContent = "→";
+        buttonContainer.appendChild(buttonRight);
+        buttonRight.addEventListener("click", () => this.player.moveRight());
     }
 }
 
